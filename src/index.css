@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.header-background{
+  background-color: #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 960px;
+  flex-wrap: wrap;
+}
+
+.header p {
+  color: white;
+  margin: 20px;
+}
