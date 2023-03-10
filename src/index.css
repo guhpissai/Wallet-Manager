@@ -1,34 +1,43 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 
 .header-background{
   background-color: #222222;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
+  color: #5FD149;
 }
 
 .header {
+  max-width: 960px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  width: 960px;
   flex-wrap: wrap;
+  padding: 20px 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header p {
-  color: white;
-  margin: 20px;
+  margin: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  max-width: 960px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 10px;
+}
+
+.form-container label {
+  padding: 10px;
+}
+
+.form-container input, select {
+  margin: 10px;
 }
