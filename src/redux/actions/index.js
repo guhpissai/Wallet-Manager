@@ -5,6 +5,9 @@ import getCoinType from '../../services/economyAPI';
 export const INPUT_EMAIL = 'INPUT_EMAIL';
 export const REQUEST_COIN = 'REQUEST_COIN';
 export const RECEIVE_COIN_SUCCESS = 'RECEIVE_COIN_SUCCESS';
+export const REQUEST_COIN_PRICE = 'REQUEST_COIN_PRICE';
+export const REQUEST_COIN_PRICE_SUCCESS = 'REQUEST_COIN_PRICE_SUCCESS';
+export const REQUEST_EXPENSES = 'REQUEST_EXPENSES';
 
 // Actions
 
@@ -22,6 +25,20 @@ const receiveCoinSuccess = (coins) => ({
   payload: coins,
 });
 
+export const requestExpenses = (expenses) => ({
+  type: REQUEST_EXPENSES,
+  payload: expenses,
+})
+
+export const requestCoinPrice = () => ({
+  type: REQUEST_COIN_PRICE,
+})
+
+export const receiveCoinPriceSuccess = (despesa) => ({
+  type: REQUEST_COIN_PRICE_SUCCESS,
+  payload: despesa,
+})
+
 const fetchCoin = async (dispatch) => {
   dispatch(requestCoin());
   const receivedCoins = await getCoinType();
@@ -30,4 +47,14 @@ const fetchCoin = async (dispatch) => {
   dispatch(receiveCoinSuccess(coins));
 };
 
-export const actionFetchCoin = () => fetchCoin;
+export const fetchCoinsPrice = (despesas) => async (dispatch) => {
+  dispatch(requestCoinPrice());
+  const receivedCoinsPrice = await getCoinType();
+  dispatch(receiveCoinPriceSuccess({
+    ...despesas,
+    exchangeRates: receivedCoinsPrice,
+  }));
+};
+
+export const actionFetchCoin = () => fetchCoin; 
+

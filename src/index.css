@@ -27,10 +27,20 @@ body {
   justify-content: center;
 }
 
+.form button {
+  padding: 5px 100px;
+  margin: auto;
+}
+
+.form label {
+  flex: 1;
+}
+
 .form-container {
   max-width: 960px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: 20px 10px;
 }
 
@@ -40,4 +50,25 @@ body {
 
 .form-container input, select {
   margin: 10px;
+}
+
+table {
+  max-width: 1080px;
+  margin: 40px auto;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+table th {
+  flex: 1;
+  padding: 10px;
+}
+
+th:nth-of-type(1n+2) {
+  border-left: 1px solid black;
 }
