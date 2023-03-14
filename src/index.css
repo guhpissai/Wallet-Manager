@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-table, h1, p {
+table {
   margin: 0;
 }
 
@@ -32,8 +32,10 @@ table, h1, p {
   margin-bottom: 40px;
 }
 
-.form input {
-  padding: 5px 50px;
+input {
+  padding: 5px 0;
+  padding-right: 50px;
+  padding-left: 5px;
 }
 
 .form select {
@@ -44,13 +46,8 @@ table, h1, p {
   margin-top: 20px;
   max-width: 960px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  /* margin: 20px 10px; */
-}
-
-
-.form input, select {
-  flex: 1;
 }
 
 .form button {

@@ -2,7 +2,8 @@ import {
   RECEIVE_COIN_SUCCESS,
   REQUEST_COIN_PRICE_SUCCESS,
   REQUEST_EXPENSES,
-  REQUEST_COIN_PRICE } from '../actions';
+  REQUEST_COIN_PRICE,
+  DELETE_EXPENSES } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -49,6 +50,12 @@ const wallet = (state = INITIAL_STATE, action) => {
         ...state.expenses,
         action.payload,
       ],
+    };
+  case DELETE_EXPENSES:
+    return {
+      ...state,
+      total: Number(state.total) - Number(action.value),
+      expenses: state.expenses.filter((expense) => expense.id !== action.id),
     };
   default:
     return state;

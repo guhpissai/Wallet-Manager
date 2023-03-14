@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deleteExpense } from '../redux/actions';
 
 class Table extends Component {
   render() {
-    const { despesas } = this.props;
-    console.log(despesas);
+    const { despesas, dispatch } = this.props;
     return (
       <tbody className="table">
         <thead className="tr-header">
@@ -33,7 +33,20 @@ class Table extends Component {
               * Number(element.value)).toFixed(2)}
               </td>
               <td>Real</td>
-              <td>Editar/Excluir</td>
+              <td>
+                <button
+                  data-testid="delete-btn"
+                  onClick={
+                    () => dispatch(deleteExpense(
+                      element.id,
+                      Number(element.exchangeRates[element.currency].ask)
+                      * Number(element.value),
+                    ))
+                  }
+                >
+                  Excluir
+                </button>
+              </td>
             </tr>
           ))}
       </tbody>
@@ -56,4 +69,5 @@ Table.propTypes = {
     tag: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   })).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };

@@ -9,7 +9,7 @@ class Header extends Component {
       <div className="header-background">
         <div className="header">
           <p data-testid="header-currency-field">BRL</p>
-          <p data-testid="total-field">{total.toFixed(2)}</p>
+          <p data-testid="total-field">{(Math.abs(total)).toFixed(2)}</p>
           <p data-testid="email-field">{email}</p>
         </div>
       </div>

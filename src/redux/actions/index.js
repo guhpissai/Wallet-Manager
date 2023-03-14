@@ -8,6 +8,7 @@ export const RECEIVE_COIN_SUCCESS = 'RECEIVE_COIN_SUCCESS';
 export const REQUEST_COIN_PRICE = 'REQUEST_COIN_PRICE';
 export const REQUEST_COIN_PRICE_SUCCESS = 'REQUEST_COIN_PRICE_SUCCESS';
 export const REQUEST_EXPENSES = 'REQUEST_EXPENSES';
+export const DELETE_EXPENSES = 'DELETE_EXPENSES';
 
 // Actions
 
@@ -55,5 +56,11 @@ export const fetchCoinsPrice = (despesas) => async (dispatch) => {
     exchangeRates: receivedCoinsPrice,
   }));
 };
+
+export const deleteExpense = (id, value) => ({
+  type: DELETE_EXPENSES,
+  id,
+  value,
+});
 
 export const actionFetchCoin = () => fetchCoin;
