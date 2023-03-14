@@ -28,16 +28,16 @@ const receiveCoinSuccess = (coins) => ({
 export const requestExpenses = (expenses) => ({
   type: REQUEST_EXPENSES,
   payload: expenses,
-})
+});
 
 export const requestCoinPrice = () => ({
   type: REQUEST_COIN_PRICE,
-})
+});
 
 export const receiveCoinPriceSuccess = (despesa) => ({
   type: REQUEST_COIN_PRICE_SUCCESS,
   payload: despesa,
-})
+});
 
 const fetchCoin = async (dispatch) => {
   dispatch(requestCoin());
@@ -56,5 +56,4 @@ export const fetchCoinsPrice = (despesas) => async (dispatch) => {
   }));
 };
 
-export const actionFetchCoin = () => fetchCoin; 
-
+export const actionFetchCoin = () => fetchCoin;

@@ -1,4 +1,8 @@
-import { RECEIVE_COIN_SUCCESS, REQUEST_COIN_PRICE_SUCCESS, REQUEST_EXPENSES, REQUEST_COIN_PRICE } from '../actions';
+import {
+  RECEIVE_COIN_SUCCESS,
+  REQUEST_COIN_PRICE_SUCCESS,
+  REQUEST_EXPENSES,
+  REQUEST_COIN_PRICE } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -27,23 +31,25 @@ const wallet = (state = INITIAL_STATE, action) => {
           currency: action.payload.moeda,
           method: action.payload.metodo,
           tag: action.payload.despesa,
-          exchangeRates: [action.payload.cotacao]
-        }
+          exchangeRates: [action.payload.cotacao],
+        },
       ],
     };
-    case REQUEST_COIN_PRICE:
-      return {
-        ...state,
-      }
-    case REQUEST_COIN_PRICE_SUCCESS:
-      return {
-        ...state,
-        total: Number(state.total) + Number(action.payload.exchangeRates[action.payload.currency].ask * action.payload.value),
-        expenses: [
-          ...state.expenses,
-          action.payload,
-        ],
-      }
+  case REQUEST_COIN_PRICE:
+    return {
+      ...state,
+    };
+  case REQUEST_COIN_PRICE_SUCCESS:
+    return {
+      ...state,
+      total:
+        Number(state.total) + Number(action.payload.exchangeRates[action.payload.currency]
+          .ask * action.payload.value),
+      expenses: [
+        ...state.expenses,
+        action.payload,
+      ],
+    };
   default:
     return state;
   }

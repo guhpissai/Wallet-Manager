@@ -89,7 +89,7 @@ tbody {
   flex-wrap: wrap;
 }
 
-tbody tr {
+tbody tr, thead {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
