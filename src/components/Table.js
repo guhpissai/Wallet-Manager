@@ -5,9 +5,8 @@ class Table extends Component {
   render() {
     const { despesas } = this.props;
     return (
-      <div className='table'>
-        <table>
-          <tr>
+      <tbody className='table'>
+          <tr className='tr-header'>
             <th>Descrição</th>
             <th>Tag</th>
             <th>Método de pagamento</th>
@@ -18,17 +17,21 @@ class Table extends Component {
             <th>Moeda de conversão</th>
             <th>Editar/Excluir</th>
           </tr>
-        </table>
         { despesas.length > 0 &&
           despesas.map((element) => (
-            <table>
-              <tr>
-                {/* <th>{element.description}</th> */}
-                <th>Test</th>
+              <tr key={element.id}>
+                <td>{element.description}</td>
+                <td>{element.tag}</td>
+                <td>{element.method}</td>
+                <td>{Number(element.value).toFixed(2)}</td>
+                <td>{element.exchangeRates[element.currency].name}</td>
+                <td>{Number(element.exchangeRates[element.currency].ask).toFixed(2)}</td>
+                <td>{(Number(element.exchangeRates[element.currency].ask) * Number(element.value)).toFixed(2)}</td>
+                <td>Real</td>
+                <td>Editar/Excluir</td>
               </tr>
-            </table>
             ))}
-      </div>
+      </tbody>
     );
   }
 }

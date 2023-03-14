@@ -45,15 +45,6 @@ class WalletForm extends Component {
           })
         } }>
           <label>
-            Valor
-            <input 
-            data-testid="value-input" 
-            type="text"
-            name='valor'
-            onChange={this.handleChange}
-            value={valor} />
-          </label>
-          <label>
             Descrição da despesa
             <input 
             data-testid="description-input" 
@@ -63,13 +54,17 @@ class WalletForm extends Component {
             value={descricao} />
           </label>
           <label>
-            Moeda
+            Categoria da despesa
             <select 
-            data-testid="currency-input" 
-            name='moeda'
-            value={moeda}
+            data-testid="tag-input"
+            name='despesa'
+            value={despesa}
             onChange={this.handleChange}>
-              {coins.map((coin) => <option key={ coin }>{coin}</option>)}
+              <option>Alimentação</option>
+              <option>Lazer</option>
+              <option>Trabalho</option>
+              <option>Transporte</option>
+              <option>Saúde</option>
             </select>
           </label>
           <label>
@@ -85,17 +80,22 @@ class WalletForm extends Component {
             </select>
           </label>
           <label>
-            Categoria da despesa
+            Valor
+            <input 
+            data-testid="value-input" 
+            type="text"
+            name='valor'
+            onChange={this.handleChange}
+            value={valor} />
+          </label>
+          <label>
+            Moeda
             <select 
-            data-testid="tag-input"
-            name='despesa'
-            value={despesa}
+            data-testid="currency-input" 
+            name='moeda'
+            value={moeda}
             onChange={this.handleChange}>
-              <option>Alimentação</option>
-              <option>Lazer</option>
-              <option>Trabalho</option>
-              <option>Transporte</option>
-              <option>Saúde</option>
+              {coins.map((coin) => <option key={ coin }>{coin}</option>)}
             </select>
           </label>
           <button type='submit'>Adicionar despesa</button>

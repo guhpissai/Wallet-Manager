@@ -3,9 +3,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+table, h1, p {
+  margin: 0;
+}
+
 .header-background{
   background-color: #222222;
-  color: #5FD149;
+  color: #2FC18C;
 }
 
 .header {
@@ -25,50 +29,77 @@ body {
 .form {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
-.form button {
-  padding: 5px 100px;
-  margin: auto;
+.form input {
+  padding: 5px 50px;
 }
 
-.form label {
-  flex: 1;
+.form select {
+  padding: 5px 20px;
 }
 
 .form-container {
+  margin-top: 20px;
   max-width: 960px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px 10px;
+  /* margin: 20px 10px; */
 }
 
-.form-container label {
-  padding: 10px;
+
+.form input, select {
+  flex: 1;
+}
+
+.form button {
+  background-color: #2FC18C;
+  min-width: 100px;
+  padding: 10px 0;
+  margin: 40px 300px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  flex: 1;
+  border: none;
+}
+
+.form button:hover {
+  background-color: #12B178;
 }
 
 .form-container input, select {
   margin: 10px;
 }
 
-table {
-  max-width: 1080px;
-  margin: 40px auto;
+.table {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-tr {
+.table-th {
+  border-bottom: 1px solid black;
+}
+
+tbody {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 20px auto;
+  flex-wrap: wrap;
+}
+
+tbody tr {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
+  max-width: 1280px;
+  margin-bottom: 20px;
+  flex: 1 1 700px;
 }
 
-table th {
-  flex: 1;
-  padding: 10px;
-}
-
-th:nth-of-type(1n+2) {
-  border-left: 1px solid black;
+tbody td, th {
+  flex: 1 1 10px;
+  flex-grow: 1;
+  text-align: center;
 }
