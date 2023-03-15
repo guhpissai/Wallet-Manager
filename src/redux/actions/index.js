@@ -9,6 +9,7 @@ export const REQUEST_COIN_PRICE = 'REQUEST_COIN_PRICE';
 export const REQUEST_COIN_PRICE_SUCCESS = 'REQUEST_COIN_PRICE_SUCCESS';
 export const REQUEST_EXPENSES = 'REQUEST_EXPENSES';
 export const DELETE_EXPENSES = 'DELETE_EXPENSES';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 
 // Actions
 
@@ -61,6 +62,11 @@ export const deleteExpense = (id, value) => ({
   type: DELETE_EXPENSES,
   id,
   value,
+});
+
+export const editExpense = (expenseEdited) => ({
+  type: EDIT_EXPENSE,
+  payload: expenseEdited,
 });
 
 export const actionFetchCoin = () => fetchCoin;

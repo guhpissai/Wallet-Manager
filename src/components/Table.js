@@ -2,10 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteExpense } from '../redux/actions';
+import WalletFormEdit from './WalletFormEdit';
 
 class Table extends Component {
+  state = {
+    click: false,
+    id: '',
+  };
+
+  handleClick = (id) => {
+    this.setState((prevState) => ({
+      click: !prevState.click,
+      id,
+    }));
+  };
+
   render() {
     const { despesas, dispatch } = this.props;
+    const { click } = this.state;
     return (
       <tbody className="table">
         <thead className="tr-header">
@@ -46,9 +60,16 @@ class Table extends Component {
                 >
                   Excluir
                 </button>
+                <button
+                  id={ element.id }
+                  onClick={ ({ target }) => this.handleClick(target.id) }
+                >
+                  Editar
+                </button>
               </td>
             </tr>
           ))}
+        { click && <WalletFormEdit removeEdit={ this.handleClick } id={ this.state.id } /> }
       </tbody>
     );
   }

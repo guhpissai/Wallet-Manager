@@ -3,7 +3,8 @@ import {
   REQUEST_COIN_PRICE_SUCCESS,
   REQUEST_EXPENSES,
   REQUEST_COIN_PRICE,
-  DELETE_EXPENSES } from '../actions';
+  DELETE_EXPENSES,
+  EDIT_EXPENSE } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -46,16 +47,20 @@ const wallet = (state = INITIAL_STATE, action) => {
       total:
         Number(state.total) + Number(action.payload.exchangeRates[action.payload.currency]
           .ask * action.payload.value),
-      expenses: [
-        ...state.expenses,
-        action.payload,
-      ],
-    };
+      expenses: [...state.expenses, action.payload] };
   case DELETE_EXPENSES:
+    return { ...state,
+      total: Number(state.total) - Number(action.value),
+      expenses: state.expenses.filter((expense) => expense.id !== action.id) };
+  case EDIT_EXPENSE:
     return {
       ...state,
-      total: Number(state.total) - Number(action.value),
-      expenses: state.expenses.filter((expense) => expense.id !== action.id),
+      expenses: state.expenses.map((expense) => {
+        if (expense.id === Number(action.payload.id)) {
+          return { ...expense, ...action.payload };
+        }
+        return expense;
+      }),
     };
   default:
     return state;
