@@ -4,7 +4,8 @@ import {
   REQUEST_EXPENSES,
   REQUEST_COIN_PRICE,
   DELETE_EXPENSES,
-  EDIT_EXPENSE } from '../actions';
+  EDIT_EXPENSE,
+  EDIT_CLICKED } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -12,6 +13,8 @@ const INITIAL_STATE = {
   editor: false, // valor booleano que indica de uma despesa está sendo editada
   idToEdit: 0, // valor numérico que armazena o id da despesa que esta sendo editada
   total: 0,
+  edit: false,
+  idToEdit: '',
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -52,9 +55,16 @@ const wallet = (state = INITIAL_STATE, action) => {
     return { ...state,
       total: Number(state.total) - Number(action.value),
       expenses: state.expenses.filter((expense) => expense.id !== action.id) };
+  case EDIT_CLICKED:
+    return {
+      ...state,
+      edit: action.payload,
+      idToEdit: action.id,
+    }
   case EDIT_EXPENSE:
     return {
       ...state,
+      edit: action.payload.edit,
       expenses: state.expenses.map((expense) => {
         if (expense.id === Number(action.payload.id)) {
           return { ...expense, ...action.payload };

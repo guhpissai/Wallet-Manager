@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteExpense } from '../redux/actions';
-import WalletFormEdit from './WalletFormEdit';
+import { deleteExpense, editClick } from '../redux/actions';
 
 class Table extends Component {
-  state = {
-    click: false,
-    id: '',
-  };
-
-  handleClick = (id) => {
-    this.setState((prevState) => ({
-      click: !prevState.click,
-      id,
-    }));
-  };
 
   render() {
-    const { despesas, dispatch } = this.props;
-    const { click } = this.state;
+    const { despesas, dispatch, edit } = this.props;
     return (
       <tbody className="table">
         <thead className="tr-header">
@@ -61,15 +48,15 @@ class Table extends Component {
                   Excluir
                 </button>
                 <button
+                  data-testid="edit-btn"
                   id={ element.id }
-                  onClick={ ({ target }) => this.handleClick(target.id) }
+                  onClick={ ({ target }) =>  dispatch(editClick(!edit, target.id)) }
                 >
                   Editar
                 </button>
               </td>
             </tr>
           ))}
-        { click && <WalletFormEdit removeEdit={ this.handleClick } id={ this.state.id } /> }
       </tbody>
     );
   }
@@ -77,6 +64,7 @@ class Table extends Component {
 
 const mapStateToProps = (state) => ({
   despesas: state.wallet.expenses,
+  edit: state.wallet.edit,
 });
 
 export default connect(mapStateToProps)(Table);

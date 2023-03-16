@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchCoinsPrice } from '../redux/actions';
+import { fetchCoinsPrice, editExpense } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
@@ -21,27 +21,37 @@ class WalletForm extends Component {
   };
 
   render() {
-    const { coins, dispatch } = this.props;
+    const { coins, dispatch, edit, idToEdit } = this.props;
     const { id, moeda, valor, despesa, descricao, metodo } = this.state;
     return (
-      <div className="form">
+      <div className={ edit ? 'form form-edid' : 'form' }>
         <form
           className="form-container"
           onSubmit={ (e) => {
             e.preventDefault();
-            dispatch(fetchCoinsPrice({
-              id,
-              value: valor,
-              description: descricao,
-              currency: moeda,
-              method: metodo,
-              tag: despesa,
-            }));
-            this.setState({
+            !edit
+              ? dispatch(fetchCoinsPrice({
+                id,
+                value: valor,
+                description: descricao,
+                currency: moeda,
+                method: metodo,
+                tag: despesa,
+              }))
+            && this.setState({
               id: id + 1,
               valor: '',
               descricao: '',
-            });
+            })
+              : dispatch(editExpense({
+                id: idToEdit,
+                value: valor,
+                description: descricao,
+                currency: moeda,
+                method: metodo,
+                tag: despesa,
+                edit: !edit,
+              }));
           } }
         >
           <label>
@@ -103,7 +113,7 @@ class WalletForm extends Component {
               {coins.map((coin) => <option key={ coin }>{coin}</option>)}
             </select>
           </label>
-          <button type="submit">Adicionar despesa</button>
+          <button type="submit">{!edit ? 'Adicionar despesa' : 'Editar despesa'}</button>
         </form>
       </div>
     );
@@ -114,6 +124,8 @@ const mapStateToProps = (state) => ({
   coins: state.wallet.currencies,
   exchange: state.wallet.exchange,
   isLoadingThunk: state.wallet.isLoading,
+  edit: state.wallet.edit,
+  idToEdit: state.wallet.idToEdit,
 });
 
 export default connect(mapStateToProps)(WalletForm);

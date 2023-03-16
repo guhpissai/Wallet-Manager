@@ -10,6 +10,7 @@ export const REQUEST_COIN_PRICE_SUCCESS = 'REQUEST_COIN_PRICE_SUCCESS';
 export const REQUEST_EXPENSES = 'REQUEST_EXPENSES';
 export const DELETE_EXPENSES = 'DELETE_EXPENSES';
 export const EDIT_EXPENSE = 'EDIT_EXPENSE';
+export const EDIT_CLICKED = 'EDIT_CLICKE';
 
 // Actions
 
@@ -63,6 +64,12 @@ export const deleteExpense = (id, value) => ({
   id,
   value,
 });
+
+export const editClick = (isClick, id) => ({
+  type: EDIT_CLICKED,
+  payload: isClick,
+  id: id,
+})
 
 export const editExpense = (expenseEdited) => ({
   type: EDIT_EXPENSE,
