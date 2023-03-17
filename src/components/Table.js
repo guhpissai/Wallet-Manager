@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { deleteExpense, editClick } from '../redux/actions';
 
 class Table extends Component {
-
   render() {
     const { despesas, dispatch, edit } = this.props;
     return (
@@ -50,7 +49,7 @@ class Table extends Component {
                 <button
                   data-testid="edit-btn"
                   id={ element.id }
-                  onClick={ ({ target }) =>  dispatch(editClick(!edit, target.id)) }
+                  onClick={ ({ target }) => dispatch(editClick(!edit, target.id)) }
                 >
                   Editar
                 </button>
@@ -79,4 +78,5 @@ Table.propTypes = {
     value: PropTypes.string.isRequired,
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
+  edit: PropTypes.bool.isRequired,
 };

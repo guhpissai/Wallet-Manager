@@ -68,8 +68,8 @@ export const deleteExpense = (id, value) => ({
 export const editClick = (isClick, id) => ({
   type: EDIT_CLICKED,
   payload: isClick,
-  id: id,
-})
+  id,
+});
 
 export const editExpense = (expenseEdited) => ({
   type: EDIT_EXPENSE,

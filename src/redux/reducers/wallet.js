@@ -12,9 +12,7 @@ const INITIAL_STATE = {
   expenses: [], // array de objetos, com cada objeto tendo as chaves id, value, currency, method, tag, description e exchangeRates
   editor: false, // valor booleano que indica de uma despesa está sendo editada
   idToEdit: 0, // valor numérico que armazena o id da despesa que esta sendo editada
-  total: 0,
   edit: false,
-  idToEdit: '',
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -29,15 +27,13 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       expenses: [
         ...state.expenses,
-        {
-          id: action.payload.id,
+        { id: action.payload.id,
           value: action.payload.valor,
           description: action.payload.descricao,
           currency: action.payload.moeda,
           method: action.payload.metodo,
           tag: action.payload.despesa,
-          exchangeRates: [action.payload.cotacao],
-        },
+          exchangeRates: [action.payload.cotacao] },
       ],
     };
   case REQUEST_COIN_PRICE:
@@ -47,20 +43,16 @@ const wallet = (state = INITIAL_STATE, action) => {
   case REQUEST_COIN_PRICE_SUCCESS:
     return {
       ...state,
-      total:
-        Number(state.total) + Number(action.payload.exchangeRates[action.payload.currency]
-          .ask * action.payload.value),
       expenses: [...state.expenses, action.payload] };
   case DELETE_EXPENSES:
     return { ...state,
-      total: Number(state.total) - Number(action.value),
       expenses: state.expenses.filter((expense) => expense.id !== action.id) };
   case EDIT_CLICKED:
     return {
       ...state,
       edit: action.payload,
       idToEdit: action.id,
-    }
+    };
   case EDIT_EXPENSE:
     return {
       ...state,
@@ -68,8 +60,7 @@ const wallet = (state = INITIAL_STATE, action) => {
       expenses: state.expenses.map((expense) => {
         if (expense.id === Number(action.payload.id)) {
           return { ...expense, ...action.payload };
-        }
-        return expense;
+        } return expense;
       }),
     };
   default:

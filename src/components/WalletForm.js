@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchCoinsPrice, editExpense } from '../redux/actions';
+import { fetchCoinsPrice, editExpense, editClick } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
@@ -29,29 +29,31 @@ class WalletForm extends Component {
           className="form-container"
           onSubmit={ (e) => {
             e.preventDefault();
-            !edit
-              ? dispatch(fetchCoinsPrice({
+            if (!edit) {
+              dispatch(fetchCoinsPrice({
                 id,
                 value: valor,
                 description: descricao,
                 currency: moeda,
                 method: metodo,
                 tag: despesa,
-              }))
-            && this.setState({
-              id: id + 1,
-              valor: '',
-              descricao: '',
-            })
-              : dispatch(editExpense({
-                id: idToEdit,
+              }));
+              this.setState({
+                id: id + 1,
+                valor: '',
+                descricao: '',
+              });
+            } else {
+              dispatch(editExpense({
+                id: Number(idToEdit),
                 value: valor,
                 description: descricao,
                 currency: moeda,
                 method: metodo,
                 tag: despesa,
-                edit: !edit,
               }));
+              dispatch(editClick(edit && !edit));
+            }
           } }
         >
           <label>
@@ -138,4 +140,6 @@ WalletForm.propTypes = {
     }).isRequired,
   ).isRequired,
   dispatch: PropTypes.func.isRequired,
+  idToEdit: PropTypes.number.isRequired,
+  edit: PropTypes.bool.isRequired,
 };
