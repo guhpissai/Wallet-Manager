@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteExpense, editClick } from '../redux/actions';
+import {deleteIcon, editIcon} from '../data/icons';
 
 class Table extends Component {
   render() {
@@ -44,14 +45,14 @@ class Table extends Component {
                     ))
                   }
                 >
-                  Excluir
+                <img className='delete-icon' src={deleteIcon}/>
                 </button>
                 <button
                   data-testid="edit-btn"
                   id={ element.id }
                   onClick={ ({ target }) => dispatch(editClick(!edit, target.id)) }
                 >
-                  Editar
+                  <img src={editIcon}/>
                 </button>
               </td>
             </tr>
