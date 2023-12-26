@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteExpense, editClick } from '../redux/actions';
-import {deleteIcon, editIcon} from '../data/icons';
+import { deleteIcon, editIcon } from '../data/icons';
 
 class Table extends Component {
   render() {
@@ -18,9 +18,9 @@ class Table extends Component {
           <th>Câmbio utilizado</th>
           <th>Valor convertido</th>
           <th>Moeda de conversão</th>
-          <th>Editar/Excluir</th>
+          <th>Excluir/Editar</th>
         </thead>
-        { despesas.length > 0
+        {despesas.length > 0
           && despesas.map((element) => (
             <tr key={ element.id }>
               <td>{element.description}</td>
@@ -28,31 +28,39 @@ class Table extends Component {
               <td>{element.method}</td>
               <td>{Number(element.value).toFixed(2)}</td>
               <td>{element.exchangeRates[element.currency].name}</td>
-              <td>{Number(element.exchangeRates[element.currency].ask).toFixed(2)}</td>
               <td>
-                {(Number(element.exchangeRates[element.currency].ask)
-              * Number(element.value)).toFixed(2)}
+                {Number(element.exchangeRates[element.currency].ask).toFixed(2)}
+              </td>
+              <td>
+                {(
+                  Number(element.exchangeRates[element.currency].ask)
+                  * Number(element.value)
+                ).toFixed(2)}
               </td>
               <td>Real</td>
               <td>
                 <button
                   data-testid="delete-btn"
-                  onClick={
-                    () => dispatch(deleteExpense(
+                  onClick={ () => dispatch(
+                    deleteExpense(
                       element.id,
                       Number(element.exchangeRates[element.currency].ask)
-                      * Number(element.value),
-                    ))
-                  }
+                          * Number(element.value),
+                    ),
+                  ) }
                 >
-                <img className='delete-icon' src={deleteIcon}/>
+                  <img
+                    className="delete-icon"
+                    src={ deleteIcon }
+                    alt="icone de deletar"
+                  />
                 </button>
                 <button
                   data-testid="edit-btn"
                   id={ element.id }
                   onClick={ ({ target }) => dispatch(editClick(!edit, target.id)) }
                 >
-                  <img src={editIcon}/>
+                  <img src={ editIcon } alt="icone de editar" />
                 </button>
               </td>
             </tr>
@@ -70,14 +78,16 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(Table);
 
 Table.propTypes = {
-  despesas: PropTypes.arrayOf(PropTypes.shape({
-    currency: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    method: PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  })).isRequired,
+  despesas: PropTypes.arrayOf(
+    PropTypes.shape({
+      currency: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      method: PropTypes.string.isRequired,
+      tag: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   dispatch: PropTypes.func.isRequired,
   edit: PropTypes.bool.isRequired,
 };

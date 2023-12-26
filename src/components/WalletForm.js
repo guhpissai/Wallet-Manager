@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCoinsPrice, editExpense, editClick } from '../redux/actions';
+import Input from './Input';
 
 class WalletForm extends Component {
   state = {
@@ -30,42 +31,44 @@ class WalletForm extends Component {
           onSubmit={ (e) => {
             e.preventDefault();
             if (!edit) {
-              dispatch(fetchCoinsPrice({
-                id,
-                value: valor,
-                description: descricao,
-                currency: moeda,
-                method: metodo,
-                tag: despesa,
-              }));
+              dispatch(
+                fetchCoinsPrice({
+                  id,
+                  value: valor,
+                  description: descricao,
+                  currency: moeda,
+                  method: metodo,
+                  tag: despesa,
+                }),
+              );
               this.setState({
                 id: id + 1,
                 valor: '',
                 descricao: '',
               });
             } else {
-              dispatch(editExpense({
-                id: Number(idToEdit),
-                value: valor,
-                description: descricao,
-                currency: moeda,
-                method: metodo,
-                tag: despesa,
-              }));
+              dispatch(
+                editExpense({
+                  id: Number(idToEdit),
+                  value: valor,
+                  description: descricao,
+                  currency: moeda,
+                  method: metodo,
+                  tag: despesa,
+                }),
+              );
               dispatch(editClick(edit && !edit));
             }
           } }
         >
-          <label>
-            Descrição da despesa
-            <input
-              data-testid="description-input"
-              type="text"
-              name="descricao"
-              onChange={ this.handleChange }
-              value={ descricao }
-            />
-          </label>
+          <Input
+            type="text"
+            dataTestId="description-input"
+            onChange={ this.handleChange }
+            value={ descricao }
+            label="Descrição da despesa"
+            name="descricao"
+          />
           <label>
             Categoria da despesa
             <select
@@ -94,16 +97,14 @@ class WalletForm extends Component {
               <option>Cartão de débito</option>
             </select>
           </label>
-          <label>
-            Valor
-            <input
-              data-testid="value-input"
-              type="text"
-              name="valor"
-              onChange={ this.handleChange }
-              value={ valor }
-            />
-          </label>
+          <Input
+            label="Valor"
+            dataTestId="value-input"
+            type="number"
+            name="valor"
+            onChange={ this.handleChange }
+            value={ valor }
+          />
           <label>
             Moeda
             <select
@@ -112,10 +113,14 @@ class WalletForm extends Component {
               value={ moeda }
               onChange={ this.handleChange }
             >
-              {coins.map((coin) => <option key={ coin }>{coin}</option>)}
+              {coins.map((coin) => (
+                <option key={ coin }>{coin}</option>
+              ))}
             </select>
           </label>
-          <button type="submit">{!edit ? 'Adicionar despesa' : 'Editar despesa'}</button>
+          <button type="submit">
+            {!edit ? 'Adicionar despesa' : 'Editar despesa'}
+          </button>
         </form>
       </div>
     );
