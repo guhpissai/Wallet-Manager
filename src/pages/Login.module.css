@@ -1,0 +1,44 @@
+.login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 98vh;
+  gap: 2rem;
+}
+
+.login::before {
+  display: block;
+  content: "";
+  background: url("../../imgs/img-login.png") no-repeat center center;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.forms {
+  max-width: 420px;
+  margin: auto;
+}
+
+.buttonLogin {
+  width: 100%;
+  padding: 1rem;
+  border-style: none;
+  background: #4f9b17;
+  color: white;
+  font-size: 1.125rem;
+  border-radius: 4px;
+}
+
+.buttonLogin:hover {
+  background: #3d7812;
+  cursor: pointer;
+  transition: 1s;
+}
+
+@media (max-width: 40rem) {
+  .login {
+    grid-template-columns: 1fr;
+  }
+  .login::before {
+    display: none;
+  }
+}

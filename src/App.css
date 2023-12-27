@@ -1,5 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
 }
 
 h1,
@@ -10,7 +18,94 @@ p {
   margin: 0px;
 }
 
+.title {
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
 input {
   display: block;
   font-size: 1rem;
+}
+
+.container {
+  max-width: 50rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  line-height: 1;
+  padding-bottom: 1rem;
+}
+
+select {
+  display: flex;
+  border: none;
+  border-style: none;
+  appearance: none;
+  padding: 0.8rem;
+  color: white;
+  font-size: 18px;
+  border-radius: 0.4rem;
+  color: black;
+  min-width: 10rem;
+  margin-top: 10px;
+}
+
+select:hover,
+select:focus {
+  outline: none;
+  border-color: #fb1;
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
+}
+
+.animateLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animateLeft 0.3s forwards;
+}
+
+@keyframes animateLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
+}
+
+.table {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.tr-header {
+  border-bottom: 1px solid black;
+}
+
+tbody {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  flex-wrap: wrap;
+}
+
+tbody tr,
+thead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1280px;
+  margin-bottom: 20px;
+  flex: 1 1 700px;
+}
+
+tbody td,
+th {
+  flex: 1 1 10px;
+  flex-grow: 1;
+  text-align: center;
 }

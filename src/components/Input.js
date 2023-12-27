@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './Input.module.css';
 
 export default class Input extends Component {
   render() {
     const { onChange, value, name, type, dataTestId, label } = this.props;
     return (
-      <div>
-        <label htmlFor={ name }>
+      <div className={ styles.wrapper }>
+        <label htmlFor={ name } className={ styles.label }>
           {label}
           <input
+            className={ styles.input }
             data-testid={ dataTestId }
             type={ type }
             name={ name }

@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { inputEmail } from '../redux/actions';
+import styles from './Login.module.css';
+import Input from '../components/Input';
 
 class Login extends React.Component {
   state = {
@@ -27,42 +29,42 @@ class Login extends React.Component {
     const { dispatch, history } = this.props;
     const lengthNumber = 6;
     return (
-      <div>
-        <form
-          onSubmit={ (e) => {
-            e.preventDefault();
-            dispatch(inputEmail(email));
-            history.push('/carteira');
-          } }
-        >
-          <label id="email">
-            Email
-            <input
+      <section className={ styles.login }>
+        <div className={ `${styles.forms} animateLeft` }>
+          <h1 className="title">Fique sob o controle das suas despesas</h1>
+          <form
+            onSubmit={ (e) => {
+              e.preventDefault();
+              dispatch(inputEmail(email));
+              history.push('/carteira');
+            } }
+          >
+            <Input
               type="email"
               name="email"
-              placeholder="Digite seu email"
-              data-testid="email-input"
+              label="Email"
+              dataTestId="email-input"
               onChange={ this.handleChange }
             />
-          </label>
-          <label>
-            Senha
-            <input
+            <Input
               type="password"
               name="password"
+              label="Senha"
               data-testid="password-input"
-              placeholder="Digite sua senha"
               onChange={ this.handleChange }
             />
-          </label>
-          <button
-            disabled={ !(this.isValidEmail() && password.length >= lengthNumber) }
-            type="submit"
-          >
-            Entrar
-          </button>
-        </form>
-      </div>
+            <button
+              className={ styles.buttonLogin }
+              disabled={
+                !(this.isValidEmail() && password.length >= lengthNumber)
+              }
+              type="submit"
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
+      </section>
     );
   }
 }

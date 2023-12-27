@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCoinsPrice, editExpense, editClick } from '../redux/actions';
+import styles from './WalletForm.module.css';
 import Input from './Input';
 
 class WalletForm extends Component {
@@ -25,9 +26,9 @@ class WalletForm extends Component {
     const { coins, dispatch, edit, idToEdit } = this.props;
     const { id, moeda, valor, despesa, descricao, metodo } = this.state;
     return (
-      <div className={ edit ? 'form form-edid' : 'form' }>
+      <div className={ styles.walletForm }>
         <form
-          className="form-container"
+          className={ styles.formContainer }
           onSubmit={ (e) => {
             e.preventDefault();
             if (!edit) {
@@ -69,7 +70,7 @@ class WalletForm extends Component {
             label="Descrição da despesa"
             name="descricao"
           />
-          <label>
+          <label className=".select-container">
             Categoria da despesa
             <select
               data-testid="tag-input"
@@ -118,7 +119,7 @@ class WalletForm extends Component {
               ))}
             </select>
           </label>
-          <button type="submit">
+          <button type="submit" className={ styles.buttonWallet }>
             {!edit ? 'Adicionar despesa' : 'Editar despesa'}
           </button>
         </form>
