@@ -1,7 +1,9 @@
 .login {
+  padding-top: 14px;
+  padding-left: 14px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 98vh;
+  min-height: 97.9vh;
   gap: 2rem;
 }
 
@@ -14,7 +16,7 @@
 }
 
 .forms {
-  max-width: 420px;
+  max-width: 400px;
   margin: auto;
 }
 
@@ -37,6 +39,7 @@
 @media (max-width: 40rem) {
   .login {
     grid-template-columns: 1fr;
+    padding: 0;
   }
   .login::before {
     display: none;

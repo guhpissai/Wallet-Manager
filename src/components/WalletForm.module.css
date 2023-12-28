@@ -1,11 +1,8 @@
 .formContainer {
-  padding-top: 70px;
-  max-width: 660px;
-  margin: auto;
+  padding: 2rem 2rem;
+  border-right: 1px solid rgb(199, 199, 199);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2px;
+  flex-direction: column;
 }
 
 .buttonWallet {
@@ -13,9 +10,11 @@
   background: #4f9b17;
   color: white;
   font-size: 1.125rem;
+  padding: 1rem;
   border-radius: 4px;
-  margin-top: 1.65rem;
-  max-height: 45px;
+  margin: 25px 0;
+  min-width: 180px;
+  max-height: 180px;
 }
 
 .buttonWallet:hover {

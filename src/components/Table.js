@@ -60,7 +60,7 @@ class Table extends Component {
                   id={ element.id }
                   onClick={ ({ target }) => dispatch(editClick(!edit, target.id)) }
                 >
-                  <img src={ editIcon } alt="icone de editar" />
+                  <img src={ editIcon } alt="icone de editar" className="icon" />
                 </button>
               </td>
             </tr>

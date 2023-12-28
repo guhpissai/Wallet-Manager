@@ -1,0 +1,6 @@
+.walletForm {
+  padding-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  justify-items: start;
+}
