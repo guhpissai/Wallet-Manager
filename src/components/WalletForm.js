@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { fetchCoinsPrice, editExpense, editClick } from '../redux/actions';
 import styles from './WalletForm.module.css';
 import Input from './Input';
-import Table from './Table';
 
 class WalletForm extends Component {
   state = {

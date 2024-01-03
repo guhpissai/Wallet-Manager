@@ -1,33 +1,33 @@
 .login {
-  padding-top: 14px;
-  padding-left: 14px;
   display: grid;
+  gap: 2rem;
   grid-template-columns: 1fr 1fr;
   min-height: 97.9vh;
-  gap: 2rem;
+  padding-left: 14px;
+  padding-top: 14px;
 }
 
-.login::before {
-  display: block;
-  content: "";
-  background: url("../../imgs/img-login.png") no-repeat center center;
+.login:before {
+  background: url('../../imgs/img-login.png') no-repeat center center;
   background-size: cover;
   border-radius: 8px;
+  content: '';
+  display: block;
 }
 
 .forms {
-  max-width: 400px;
   margin: auto;
+  max-width: 400px;
 }
 
 .buttonLogin {
-  width: 100%;
-  padding: 1rem;
-  border-style: none;
   background: #4f9b17;
+  border-radius: 4px;
+  border-style: none;
   color: white;
   font-size: 1.125rem;
-  border-radius: 4px;
+  padding: 1rem;
+  width: 100%;
 }
 
 .buttonLogin:hover {
@@ -36,16 +36,19 @@
   transition: 1s;
 }
 
-@media (max-width: 40rem) {
+@media ( max-width : 40rem ) {
+
   .login {
     grid-template-columns: 1fr;
     padding: 0;
   }
-  .login::before {
+
+  .login:before {
     display: none;
   }
+
   .forms {
-    max-width: 340px;
     margin: auto;
+    max-width: 340px;
   }
 }
