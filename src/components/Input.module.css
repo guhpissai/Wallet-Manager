@@ -28,3 +28,9 @@
   padding-bottom: 1rem;
   max-height: 80px;
 }
+
+@media (max-width: 430px) {
+  .wrapper {
+    max-width: 180px;
+  }
+}

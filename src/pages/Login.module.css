@@ -44,4 +44,8 @@
   .login::before {
     display: none;
   }
+  .forms {
+    max-width: 340px;
+    margin: auto;
+  }
 }

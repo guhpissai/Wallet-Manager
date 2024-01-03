@@ -50,7 +50,7 @@ class Login extends React.Component {
               type="password"
               name="password"
               label="Senha"
-              data-testid="password-input"
+              dataTestId="password-input"
               onChange={ this.handleChange }
             />
             <button

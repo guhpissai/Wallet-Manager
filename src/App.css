@@ -39,16 +39,17 @@ label {
   line-height: 1;
   padding-bottom: 1rem;
   max-height: 80px;
+  margin-top: 1rem;
 }
 
 select {
   display: flex;
   border: none;
-  border-style: none;
-  appearance: none;
+  border-bottom: 1px solid black;
+  /* appearance: none; */
+  width: 100%;
   max-height: 44px;
   background: none;
-  border-bottom: 1px solid black;
   padding: 0.8rem;
   font-size: 18px;
   color: black;
@@ -75,17 +76,34 @@ select:focus {
   }
 }
 
-.table {
+.table-container {
   width: 100%;
-  overflow-y: auto;
+  overflow-x: auto;
+  padding: 0 1rem;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 1060px;
 }
 
 .tr-header {
-  display: flex;
-  align-items: flex-start;
-  color: #999;
-  margin-bottom: 1.25rem;
-  padding: 0 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
+.tr-header th {
+  font-weight: bold;
+  text-align: left;
+  align-self: flex-end;
+  color: #8e8e8e;
+}
+
+table td,
+table th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
 }
 
 button {
@@ -99,11 +117,10 @@ button img {
 }
 
 tbody {
-  display: flex;
-  flex-direction: column;
+  display: table; /* Adicione esta linha */
+  width: 100%; /* Adicione esta linha */
   justify-content: flex-start;
   margin: 20px auto;
-  padding: 0 1rem;
 }
 
 tr:nth-child(2n) {
@@ -124,4 +141,16 @@ tbody td,
 th {
   flex: 1;
   text-align: start;
+}
+
+tr button:hover svg > * {
+  fill: rgb(30, 30, 30);
+}
+
+@media (max-width: 430px) {
+  select,
+  label {
+    max-width: 180px;
+    min-width: 180px;
+  }
 }

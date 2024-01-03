@@ -3,4 +3,13 @@
   display: grid;
   grid-template-columns: 1fr 6fr;
   justify-items: start;
+  height: 100vh;
+}
+
+@media (max-width: 430px) {
+  .walletForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+  }
 }
