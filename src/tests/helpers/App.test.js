@@ -27,9 +27,6 @@ describe('Testa a pagina de Login', () => {
 
     const emailInput = screen.getByRole('textbox');
     const passwordInput = screen.getByTestId('password-input');
-    const button = screen.getByRole('button', {
-      name: /entrar/i,
-    });
 
     await userEvent.click(emailInput);
     await userEvent.type(emailInput, EMAIL);
@@ -41,7 +38,7 @@ describe('Testa a pagina de Login', () => {
     expect(passwordInput).toHaveValue('123456');
   });
 
-  test('Deve ser possível inserir dados no nos Inputs', async () => {
+  test('Deve ser possivel fazer login e ser direcionado para a pagina /carteira', async () => {
     renderWithRouterAndRedux(<App />);
 
     const emailInput = screen.getByRole('textbox');
