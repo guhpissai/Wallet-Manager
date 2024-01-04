@@ -234,7 +234,7 @@ export const mockExpense = [
     currency: 'USD',
     method: 'Dinheiro',
     tag: 'Transporte',
-    description: 'Hot Dog',
+    description: 'Skate',
     exchangeRates: { ...mockData },
   },
   {

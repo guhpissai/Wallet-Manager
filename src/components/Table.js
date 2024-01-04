@@ -46,7 +46,7 @@ class Table extends Component {
                   <button
                     data-testid="edit-btn"
                     id={ element.id }
-                    onClick={ ({ target }) => dispatch(editClick(!edit, target.id)) }
+                    onClick={ () => dispatch(editClick(!edit, element.id)) }
                   >
                     <Edit />
                   </button>

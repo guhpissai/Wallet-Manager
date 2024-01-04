@@ -30,7 +30,11 @@
   width: 100%;
 }
 
-.buttonLogin:hover {
+.buttonLogin:disabled {
+  background: black;
+}
+
+.buttonLogin:not( :disabled ):hover {
   background: #3d7812;
   cursor: pointer;
   transition: 1s;

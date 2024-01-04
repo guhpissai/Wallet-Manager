@@ -42,11 +42,11 @@ class WalletForm extends Component {
                   tag: despesa,
                 }),
               );
-              this.setState({
-                id: id + 1,
+              this.setState((prevState) => ({
+                id: prevState.id + 1,
                 valor: '',
                 descricao: '',
-              });
+              }));
             } else {
               dispatch(
                 editExpense({

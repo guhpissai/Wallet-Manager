@@ -18,34 +18,48 @@ const INITIAL_STATE = {
 };
 
 describe('Testa o componente WalletForm', () => {
-  test('Deve renderizar o componente WalletForm corretamente', () => {
+  test('Deve ser possivel editar uma despesa', async () => {
     renderWithRouterAndRedux(<Wallet />, { initialState: INITIAL_STATE });
 
     const inputDescription = screen.getByTestId('description-input');
-    expect(inputDescription).toBeInTheDocument();
-
-    const inputTag = screen.getByTestId('tag-input');
-    expect(inputTag).toBeInTheDocument();
-
-    const inputPayment = screen.getByTestId('method-input');
-    expect(inputPayment).toBeInTheDocument();
-
-    const inputValue = screen.getByTestId('tag-input');
-    expect(inputValue).toBeInTheDocument();
-
-    const inputCoin = screen.getByTestId('method-input');
-    expect(inputCoin).toBeInTheDocument();
+    // const inputTag = screen.getByTestId('tag-input');
+    // const inputPayment = screen.getByTestId('method-input');
+    // const inputValue = screen.getByTestId('value-input');
+    // const inputCoin = screen.getByTestId('currency-input');
 
     expect(screen.getByRole('button', { name: /adicionar despesa/i })).toBeInTheDocument();
-
-    const deleteButton = screen.getAllByTestId('delete-btn');
     const editButton = screen.getAllByTestId('edit-btn');
 
-    expect(deleteButton).toHaveLength(2);
     expect(editButton).toHaveLength(2);
 
     userEvent.click(editButton[0]);
-
     expect(screen.getByRole('button', { name: /Editar despesa/i })).toBeInTheDocument();
+
+    userEvent.type(inputDescription, 'Carro');
+    userEvent.click(screen.getByRole('button', { name: /Editar despesa/i }));
+
+    expect(await screen.findByRole('cell', { name: /Carro/i })).toBeInTheDocument();
+  });
+
+  test('Deve ser possivel adicionar uma despesa', async () => {
+    renderWithRouterAndRedux(<Wallet />);
+
+    const inputDescription = screen.getByTestId('description-input');
+    const inputTag = screen.getByTestId('tag-input');
+    const inputPayment = screen.getByTestId('method-input');
+    const inputValue = screen.getByTestId('value-input');
+
+    // action
+
+    userEvent.type(inputDescription, 'Bicicleta');
+    userEvent.selectOptions(inputTag, 'Transporte');
+    userEvent.selectOptions(inputPayment, 'Dinheiro');
+    userEvent.type(inputValue, '20');
+
+    userEvent.click(screen.getByRole('button', {
+      name: /adicionar despesa/i,
+    }));
+
+    expect(await screen.findAllByTestId('delete-btn')).toHaveLength(1);
   });
 });
