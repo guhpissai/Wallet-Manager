@@ -22,3 +22,18 @@
 .coin p {
   margin-right: 4px;
 }
+
+.email {
+  align-items: center;
+  display: flex;
+}
+
+.email:before {
+  background: url('../images/potrait-icon.svg');
+  background-size: cover;
+  content: '';
+  display: inline-block;
+  height: 24px;
+  margin-right: 10px;
+  width: 24px;
+}

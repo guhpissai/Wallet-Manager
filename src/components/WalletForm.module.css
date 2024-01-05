@@ -24,7 +24,8 @@
   transition: 1s;
 }
 
-@media (max-width: 430px) {
+@media ( max-width : 430px ) {
+
   .formContainer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.123);
     flex-flow: wrap;

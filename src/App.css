@@ -118,10 +118,10 @@ button img {
 }
 
 tbody {
-  display: table; 
+  display: table;
   justify-content: flex-start;
   margin: 20px auto;
-  width: 100%; 
+  width: 100%;
 }
 
 tr {

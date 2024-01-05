@@ -21,7 +21,7 @@ class Header extends Component {
                 .toFixed(2)}
             </p>
           </div>
-          <p data-testid="email-field">{email}</p>
+          <p className={ styles.email } data-testid="email-field">{email}</p>
         </div>
       </header>
     );

@@ -1,32 +1,32 @@
 /* TableStyles.css */
-
 .tableContainer {
   overflow-x: auto;
   padding: 0 1rem;
+  padding-bottom: 2rem;
+  padding-top: 0.4rem;
   width: 100%;
-  padding-top: 1.5rem;
 }
 
 .table {
-  width: 100%;
   border-collapse: collapse;
   min-width: 1080px;
+  width: 100%;
 }
 
 .trHeader th {
-  text-align: left;
   align-self: flex-end;
-  padding: 10px;
-  flex: 1;
   color: #8e8e8e;
+  flex: 1;
   font-weight: 700;
+  padding: 10px;
+  text-align: left;
 }
 
 tbody td {
-  text-align: left;
-  padding: 10px;
-  flex: 1;
   align-self: center;
+  flex: 1;
+  padding: 10px;
+  text-align: left;
 }
 
 button {
@@ -48,8 +48,9 @@ tr {
   padding: 0.25rem 0.5rem;
 }
 
-tr:nth-child(2n) {
-  background: #c0f49b75;
+tr:nth-child( 2n ) {
+  background: #eee;
+  border-radius: 8px;
 }
 
 tr button:hover svg > * {

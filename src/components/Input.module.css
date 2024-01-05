@@ -30,8 +30,7 @@
 
 @media ( max-width : 430px ) {
 
-  .wrapper {
+  .wrapper , label {
     flex: 1;
-    max-width: 180px;
   }
 }
