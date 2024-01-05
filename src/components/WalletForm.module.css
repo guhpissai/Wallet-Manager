@@ -47,8 +47,8 @@
   }
 }
 
-/* @media (max-width: 360px) {
+@media (max-width: 360px) {
   .formContainer {
     max-width: 360px;
   }
-} */
+}
