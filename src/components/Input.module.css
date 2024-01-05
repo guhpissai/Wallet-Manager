@@ -15,7 +15,8 @@
   width: 100%;
 }
 
-.input:hover , .input:focus {
+.input:hover,
+.input:focus {
   border-color: #fb1;
   outline: none;
 }
@@ -28,9 +29,10 @@
   padding-bottom: 1rem;
 }
 
-@media ( max-width : 430px ) {
-
-  .wrapper , label {
+@media (max-width: 430px) {
+  .wrapper,
+  label {
     flex: 1;
+    min-width: 160px;
   }
 }

@@ -29,9 +29,9 @@
 }
 
 .email:before {
-  background: url('../images/potrait-icon.svg');
+  background: url("../images/potrait-icon.svg");
   background-size: cover;
-  content: '';
+  content: "";
   display: inline-block;
   height: 24px;
   margin-right: 10px;

@@ -8,10 +8,10 @@
 }
 
 .login:before {
-  background: url('../images/img-login.png.jpg') no-repeat center center;
+  background: url("../images/img-login.png.jpg") no-repeat center center;
   background-size: cover;
   border-radius: 8px;
-  content: '';
+  content: "";
   display: block;
 }
 
@@ -35,14 +35,13 @@
   background: #eee;
 }
 
-.buttonLogin:not( :disabled ):hover {
+.buttonLogin:not(:disabled):hover {
   background: #3d7812;
   cursor: pointer;
   transition: 1s;
 }
 
-@media ( max-width : 40rem ) {
-
+@media (max-width: 40rem) {
   .login {
     grid-template-columns: 1fr;
     padding: 0;
@@ -55,5 +54,16 @@
   .forms {
     margin: auto;
     max-width: 340px;
+  }
+}
+
+@media (max-width: 360px) {
+  .login:before {
+    display: none;
+  }
+
+  .forms {
+    margin: auto;
+    max-width: 280px;
   }
 }

@@ -1,7 +1,7 @@
 /* TableStyles.css */
 .tableContainer {
   overflow-x: auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   padding-bottom: 2rem;
   padding-top: 0.4rem;
   width: 100%;
@@ -48,7 +48,7 @@ tr {
   padding: 0.25rem 0.5rem;
 }
 
-tr:nth-child( 2n ) {
+tr:nth-child(2n) {
   background: #eee;
   border-radius: 8px;
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap') ;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -9,7 +9,11 @@ body {
   margin: 0;
 }
 
-h1 , h2 , h3 , h4 , p {
+h1,
+h2,
+h3,
+h4,
+p {
   margin: 0;
 }
 
@@ -43,18 +47,16 @@ select {
   border: none;
   border-bottom: 1px solid black;
   color: black;
-  display: flex;
-  font-size: 18px;
+  flex: 1;
+  font-size: 16px;
   margin-top: 10px;
   max-height: 44px;
-  min-width: 10rem;
   padding: 0.8rem;
-
-  /* appearance: none; */
   width: 100%;
 }
 
-select:hover , select:focus {
+select:hover,
+select:focus {
   border-color: #fb1;
   outline: none;
 }
@@ -66,85 +68,14 @@ select:hover , select:focus {
 }
 
 @keyframes animateLeft {
-
   to {
     opacity: 1;
     transform: initial;
   }
 }
 
-/* .table-container {
-  overflow-x: auto;
-  padding: 0 1rem;
-  width: 100%;
-}
-
-.table {
-  border-collapse: collapse;
-  min-width: 1060px;
-  width: 100%;
-}
-
-.tr-header {
-  padding: 1rem 0.5rem;
-}
-
-tbody td , th {
-  flex: 1;
-  text-align: start;
-}
-
-table td , table th {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-}
-
-.tr-header th {
-  align-self: flex-end;
-  color: #8e8e8e;
-  font-weight: 700;
-  text-align: left;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-button img {
-  fill: black;
-}
-
-tbody {
-  display: table;
-  justify-content: flex-start;
-  margin: 20px auto;
-  width: 100%;
-}
-
-tr {
-  padding: 0.25rem 0.5rem;
-}
-
-tbody tr , thead {
-  align-items: center;
-  display: flex;
-}
-
-tr:nth-child( 2n ) {
-  background: #eee;
-}
-
-tr button:hover svg > * {
-  fill: rgb(30, 30, 30);
-} */
-
-@media ( max-width : 430px ) {
-
-  select {
-    max-width: 180px;
-    min-width: 180px;
+@media (max-width: 430px) {
+  .container {
+    padding: 0 1.5rem;
   }
 }
