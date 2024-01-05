@@ -8,7 +8,7 @@
 }
 
 .login:before {
-  background: url('../../imgs/img-login.png') no-repeat center center;
+  background: url('../images/img-login.png.jpg') no-repeat center center;
   background-size: cover;
   border-radius: 8px;
   content: '';
