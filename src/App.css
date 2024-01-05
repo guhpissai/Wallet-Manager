@@ -37,8 +37,6 @@ label {
   display: block;
   font-size: 1rem;
   line-height: 1;
-  margin-top: 1rem;
-  max-height: 80px;
   padding-bottom: 1rem;
 }
 
@@ -48,9 +46,6 @@ select {
   border-bottom: 1px solid black;
   color: black;
   flex: 1;
-  font-size: 16px;
-  margin-top: 10px;
-  max-height: 44px;
   padding: 0.8rem;
   width: 100%;
 }

@@ -1,6 +1,6 @@
-.wrapper {
-  margin-bottom: 1rem;
-}
+/* .wrapper {
+  margin: auto;
+} */
 
 .input {
   background: none;
@@ -8,7 +8,6 @@
   border-bottom: 1px solid black;
   display: block;
   font-size: 1rem;
-  margin-top: 0.625rem;
   max-height: 44px;
   padding: 0.8rem;
   transition: 0.2s;
@@ -25,7 +24,8 @@
   display: block;
   font-size: 1rem;
   line-height: 1;
-  max-height: 80px;
+  /* max-height: 80px; */
+  margin: auto;
   padding-bottom: 1rem;
 }
 

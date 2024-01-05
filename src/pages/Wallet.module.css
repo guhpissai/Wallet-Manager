@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 6fr;
   height: 100vh;
-  justify-items: start;
   padding-top: 80px;
 }
 
