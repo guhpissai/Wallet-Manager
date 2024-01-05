@@ -1,0 +1,57 @@
+/* TableStyles.css */
+
+.tableContainer {
+  overflow-x: auto;
+  padding: 0 1rem;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1080px;
+}
+
+.trHeader th {
+  text-align: left;
+  align-self: flex-end;
+  padding: 10px;
+  flex: 1;
+  color: #8e8e8e;
+  font-weight: 700;
+}
+
+tbody td {
+  text-align: left;
+  padding: 10px;
+  flex: 1;
+  align-self: center;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0.5rem;
+}
+
+tr:nth-child(2n) {
+  background: #c0f49b75;
+}
+
+tr button:hover svg > * {
+  fill: rgb(30, 30, 30);
+}

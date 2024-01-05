@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .buttonWallet {
@@ -24,8 +24,7 @@
   transition: 1s;
 }
 
-@media ( max-width : 430px ) {
-
+@media (max-width: 430px) {
   .formContainer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.123);
     flex-flow: wrap;

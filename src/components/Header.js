@@ -37,5 +37,10 @@ export default connect(mapStateToProps)(Header);
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
+  total: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };

@@ -139,12 +139,7 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(WalletForm);
 
 WalletForm.propTypes = {
-  coins: PropTypes.arrayOf(
-    PropTypes.shape({
-      start: PropTypes.number.isRequired,
-      end: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+  coins: PropTypes.arrayOf(PropTypes.string).isRequired,
   dispatch: PropTypes.func.isRequired,
   idToEdit: PropTypes.number.isRequired,
   edit: PropTypes.bool.isRequired,
